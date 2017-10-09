@@ -19,7 +19,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
     function insertNodeAt(fatherNode, node, position) {
       var refNode = position === 0 ? fatherNode.children[0] : fatherNode.children[position - 1].nextSibling;
-      fatherNode.insertBefore(node, refNode);
+      fatherNode.insertBefore(node, typeof refNode == 'undefined' ? null : refNode);
     }
 
     function computeVmIndex(vnodes, element) {
@@ -373,7 +373,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     if(typeof window.Vue == "undefined") {
       throw 'Vue.js not found!';
     }
-    
+
     if(typeof window.Sortable == "undefined") {
       throw 'Sortable.js not found!';
     }
